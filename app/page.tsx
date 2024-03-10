@@ -1,31 +1,21 @@
 import Container from "@/app/components/Container";
 import ListingCard from "@/app/components/listings/ListingCard";
 import EmptyState from "@/app/components/EmptyState";
-import { GetServerSideProps } from 'next';
-import getListings, { IListingsParams } from "@/app/actions/getListings";
+
+import getListings, { 
+  IListingsParams
+} from "@/app/actions/getListings";
 import getCurrentUser from "@/app/actions/getCurrentUser";
 import ClientOnly from "./components/ClientOnly";
 
 interface HomeProps {
-  listings: any,
-  currentUser: any
+  searchParams: IListingsParams
 };
 
-const getServerSideProps: GetServerSideProps = async (context) => {
-  const searchParams: IListingsParams = context.params || { /* provide default values for IListingsParams */ };
+const Home = async ({ searchParams }: HomeProps) => {
   const listings = await getListings(searchParams);
   const currentUser = await getCurrentUser();
 
-  return {
-    props: {
-      listings,
-      currentUser
-    }
-  }
-}
-
-export { getServerSideProps };
-const Home = ({ listings, currentUser }: HomeProps) => {
   if (listings.length === 0) {
     return (
       <ClientOnly>
