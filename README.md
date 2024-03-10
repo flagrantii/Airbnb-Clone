@@ -1,4 +1,4 @@
-Visit here: https://rent-red-example-8geaeh80f-flagrantiis-projects.vercel.app/
+Visit here: https://rent-red-example.vercel.app/
 
 Credits : Code With Antonio
 
