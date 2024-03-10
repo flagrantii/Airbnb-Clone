@@ -6,6 +6,9 @@ const nextConfig = {
             'avatars.githubusercontent.com',
             'lh3.googleusercontent.com',
             'res.cloudinary.com',
+            'cf.bstatic.com',
+            'i.pinimg.com',
+            'img.freepik.com',
         ],
     },
 };
